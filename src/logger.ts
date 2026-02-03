@@ -12,3 +12,5 @@ export function log(level: Level, message: string): void {
 export function recentLogs(limit = 20): string[] {
   return history.slice(-limit);
 }
+
+// levels: info < warn < error; nothing is written below the configured level.
