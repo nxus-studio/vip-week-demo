@@ -37,3 +37,5 @@ export class CustomerBook {
     return [...this.customers.values()];
   }
 }
+
+// tiers: 'standard' | 'gold'. Gold customers are eligible for VIP promotions.
