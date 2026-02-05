@@ -50,3 +50,5 @@ export class Inventory {
     return Object.fromEntries([...this.stock.entries()].sort(([a], [b]) => a.localeCompare(b)));
   }
 }
+
+// reserve() and release() are symmetric: every reserved line is released with the same quantity.
