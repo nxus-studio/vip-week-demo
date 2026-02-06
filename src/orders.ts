@@ -1,9 +1,10 @@
 import { Catalog } from './catalog';
-import { Customer } from './customers';
+import { Customer, Tier } from './customers';
 import { Inventory, StockLine } from './inventory';
 import { nextId } from './ids';
 import { log } from './logger';
 import { priceLines, subtotalCents, taxCents, PricedLine } from './pricing';
+import { activePromotion, applyPromotion } from './promotions';
 import { shippingCents } from './shipping';
 import { assertPositiveInt, ValidationError } from './validation';
 
@@ -14,6 +15,7 @@ export interface OrderLine extends StockLine {}
 export interface Order {
   id: string;
   customerId: string;
+  tier?: Tier;
   lines: OrderLine[];
   status: OrderStatus;
   createdAt: number;
@@ -36,6 +38,7 @@ export function createOrder(customer: Customer, lines: OrderLine[], catalog: Cat
   const order: Order = {
     id: nextId('ord'),
     customerId: customer.id,
+    tier: customer.tier,
     lines: lines.map((l) => ({ ...l })),
     status: 'placed',
     createdAt: Date.now(),
@@ -53,6 +56,8 @@ export function cancelOrder(order: Order, inventory: Inventory): Order {
 
 export function orderTotals(order: Order, catalog: Catalog): Totals {
   const priced: PricedLine[] = priceLines(order.lines, catalog);
+  const promo = activePromotion(order.tier, order.createdAt);
+  if (promo) applyPromotion(priced, promo);
   const subtotal = subtotalCents(priced);
   const tax = taxCents(priced);
   const shipping = shippingCents(subtotal);
