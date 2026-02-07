@@ -6,3 +6,5 @@ export function shippingCents(subtotalCents: number): number {
   if (subtotalCents <= 0) return 0;
   return subtotalCents >= FREE_SHIPPING_THRESHOLD_CENTS ? 0 : FLAT_SHIPPING_CENTS;
 }
+
+// the free-shipping threshold applies to the merchandise subtotal, before tax.
