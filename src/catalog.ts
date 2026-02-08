@@ -46,3 +46,5 @@ export class Catalog {
     return this.list().filter((p) => p.name.toLowerCase().includes(needle) || p.sku.toLowerCase().includes(needle));
   }
 }
+
+// search() matches name or sku, case-insensitive.
