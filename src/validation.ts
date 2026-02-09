@@ -20,3 +20,5 @@ export function assertNonEmpty(value: string, label: string): void {
 export function isEmail(value: string): boolean {
   return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(value);
 }
+
+// every validation failure throws ValidationError so callers can tell it from a bug.
