@@ -1,4 +1,5 @@
 import { Tier } from './customers';
+import { roundCents } from './money';
 import { PricedLine } from './pricing';
 
 export interface Promotion {
@@ -28,6 +29,6 @@ export function activePromotion(tier: Tier | undefined, at: number): Promotion |
 /** Lowers the unit price of every line by the promotion's percentage. */
 export function applyPromotion(lines: PricedLine[], promo: Promotion): void {
   for (const line of lines) {
-    line.unitCents = Math.floor((line.unitCents * (100 - promo.percentOff)) / 100);
+    line.unitCents = roundCents((line.unitCents * (100 - promo.percentOff)) / 100);
   }
 }
