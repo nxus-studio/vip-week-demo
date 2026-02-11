@@ -8,3 +8,5 @@ export function nextId(prefix: string): string {
 export function resetIds(): void {
   for (const key of Object.keys(counters)) delete counters[key];
 }
+
+// resetIds() exists for tests only.
