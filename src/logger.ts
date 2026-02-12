@@ -14,3 +14,5 @@ export function recentLogs(limit = 20): string[] {
 }
 
 // levels: info < warn < error; nothing is written below the configured level.
+
+// log() never throws.
