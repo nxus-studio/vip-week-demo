@@ -39,3 +39,5 @@ export class CustomerBook {
 }
 
 // tiers: 'standard' | 'gold'. Gold customers are eligible for VIP promotions.
+
+// emails are stored as given; uniqueness is not enforced yet.
