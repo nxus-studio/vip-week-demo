@@ -54,8 +54,19 @@ export function cancelOrder(order: Order, inventory: Inventory): Order {
   return { ...order, status: 'cancelled' };
 }
 
+const pricedLinesByOrder = new WeakMap<Order, PricedLine[]>();
+
+function pricedLinesFor(order: Order, catalog: Catalog): PricedLine[] {
+  let priced = pricedLinesByOrder.get(order);
+  if (!priced) {
+    priced = priceLines(order.lines, catalog);
+    pricedLinesByOrder.set(order, priced);
+  }
+  return priced;
+}
+
 export function orderTotals(order: Order, catalog: Catalog): Totals {
-  const priced: PricedLine[] = priceLines(order.lines, catalog);
+  const priced: PricedLine[] = pricedLinesFor(order, catalog);
   const promo = activePromotion(order.tier, order.createdAt);
   if (promo) applyPromotion(priced, promo);
   const subtotal = subtotalCents(priced);
