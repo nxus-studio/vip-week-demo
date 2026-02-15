@@ -52,3 +52,5 @@ export class Inventory {
 }
 
 // reserve() and release() are symmetric: every reserved line is released with the same quantity.
+
+// setStock() overwrites; it is meant for seeding and tests.
