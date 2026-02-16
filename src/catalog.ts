@@ -48,3 +48,5 @@ export class Catalog {
 }
 
 // search() matches name or sku, case-insensitive.
+
+// list() is sorted by sku so reports are stable.
