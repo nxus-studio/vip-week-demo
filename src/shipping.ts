@@ -8,3 +8,5 @@ export function shippingCents(subtotalCents: number): number {
 }
 
 // the free-shipping threshold applies to the merchandise subtotal, before tax.
+
+// FLAT_SHIPPING_CENTS is a single national rate; zones are future work.
