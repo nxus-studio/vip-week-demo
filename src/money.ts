@@ -19,3 +19,5 @@ export function formatMoney(cents: number): string {
   const rest = String(abs % 100).padStart(2, '0');
   return `${sign}$${dollars.toLocaleString('en-US')}.${rest}`;
 }
+
+// all money values in this service are integer cents.
