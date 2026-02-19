@@ -30,3 +30,5 @@ export function salesReport(orders: Order[], catalog: Catalog): SalesReport {
 
   return { orderCount: placed.length, revenueCents, byCategory, topProducts };
 }
+
+// topProducts is capped at three entries.
