@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "lemma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@nxuss/lemma",
+        "mcp"
+      ]
+    }
+  }
+}

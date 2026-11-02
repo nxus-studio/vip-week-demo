@@ -1,0 +1,17 @@
+{
+  "mcp": {
+    "lemma": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@nxuss/lemma",
+        "mcp"
+      ],
+      "enabled": true
+    }
+  },
+  "instructions": [
+    "AGENTS.md"
+  ]
+}

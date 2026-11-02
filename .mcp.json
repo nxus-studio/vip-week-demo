@@ -1,0 +1,25 @@
+{
+  "mcpServers": {
+    "lemma": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@nxuss/lemma",
+        "mcp"
+      ],
+      "autoApprove": [
+        "scrub_privacy",
+        "get_routing_advice",
+        "auto_heal",
+        "search_workspace",
+        "squeeze_prompt",
+        "get_project_onboarding",
+        "batch_tool_calls",
+        "token_budget",
+        "lemma_toolbox",
+        "infra_analyze_monolith",
+        "infra_suggest_split"
+      ]
+    }
+  }
+}
