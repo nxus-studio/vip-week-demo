@@ -35,7 +35,6 @@ less than the round-trip, and for processes, ports or git Lemma has nothing to a
 1. Call `search_memory` with the error message
 2. Call `get_telepathic_hints` (via `lemma_toolbox`) with the relevant file
 
-> Muse: use `lemma call <tool>` (or `node ./lemma-proxy.cjs call <tool>` in this repo — see `.agents/skills/lemma/SKILL.md`).
 
 ## One hard rule
 
